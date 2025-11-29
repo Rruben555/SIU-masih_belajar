@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Footer from './components/Footer';  // Footer sudah diimpor, tapi belum digunakan—saya tambahkan di bawah jika perlu
-
 import Home from "./pages/Home";
 import DetailUKM from './pages/DetailUKM';
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 import Anggota from "./pages/Anggota";  // Tambahan import
 import Forum from "./pages/Forum";      // Tambahan import
 import Kegiatan from "./pages/Kegiatan"; // Tambahan import
@@ -18,6 +18,9 @@ function AppContent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const [anggotaTerdaftar, setAnggotaTerdaftar] = useState(false);
+  const [kegiatanTerdaftar, setKegiatanTerdaftar] = useState(false);
+
 
   const toggleSidebar = () => setIsSidebarOpen((v) => !v);
 
@@ -35,12 +38,13 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ukm/:id" element={<DetailUKM />} />  {/* Tambahan route untuk DetailUKM */}
-          <Route path="/anggota" element={<Anggota />} />  {/* Tambahan route */}
+          <Route path="/anggota" element={<Anggota setAnggotaTerdaftar={setAnggotaTerdaftar}/>} />  {/* Tambahan route */}
           <Route path="/forum" element={<Forum />} />      {/* Tambahan route */}
-          <Route path="/kegiatan" element={<Kegiatan />} /> {/* Tambahan route */}
+          <Route path="/kegiatan" element={<Kegiatan setKegiatanTerdaftar={setKegiatanTerdaftar} />} /> {/* Tambahan route */}
           <Route path="/laporan" element={<Laporan />} />   {/* Tambahan route */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile anggota={anggotaTerdaftar} kegiatan={kegiatanTerdaftar}/>} />
         </Routes>
       </div>
 

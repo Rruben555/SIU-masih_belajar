@@ -1,9 +1,10 @@
-// Data dummy untuk UKM
 export const ukmData = [
+
   {
     id: 1,
     nama: 'UKM Olahraga',
     deskripsi: 'Menyelenggarakan kegiatan olahraga seperti futsal, basket, dan lari pagi.',
+    terdaftar: false,
     gambar: 'https://via.placeholder.com/300x200?text=UKM+Olahraga',
     anggota: [
       { nama: 'Alice Johnson', jabatan: 'Ketua' },
@@ -15,32 +16,34 @@ export const ukmData = [
       { nama: 'Lari Pagi', tanggal: '20 Okt 2023', deskripsi: 'Olahraga pagi bersama.' }
     ],
     laporan: [
-      { kegiatan: 'Turnamen Futsal', peserta: 50, biaya: 'Rp 500.000' },
-      { kegiatan: 'Lari Pagi', peserta: 30, biaya: 'Rp 200.000' }
+      { kegiatan: 'Turnamen Futsal', peserta: 50, biaya: 'Rp 500.000', terdaftar: false},
+      { kegiatan: 'Lari Pagi', peserta: 30, biaya: 'Rp 200.000', terdaftar: false }
     ]
   },
   {
     id: 2,
     nama: 'UKM Seni',
     deskripsi: 'Tempat berkumpulnya seniman muda untuk belajar musik, tari, dan seni rupa.',
+    terdaftar: false,
     gambar: 'https://via.placeholder.com/300x200?text=UKM+Seni',
     anggota: [
       { nama: 'Diana Prince', jabatan: 'Ketua' },
       { nama: 'Eve Wilson', jabatan: 'Anggota' }
     ],
     kegiatan: [
-      { nama: 'Workshop Musik', tanggal: '18 Okt 2023', deskripsi: 'Belajar alat musik.' },
-      { nama: 'Pameran Seni', tanggal: '25 Okt 2023', deskripsi: 'Tampilkan karya seni.' }
+      { nama: 'Workshop Musik', tanggal: '18 Okt 2023', deskripsi: 'Belajar alat musik.', terdaftar: false },
+      { nama: 'Pameran Seni', tanggal: '25 Okt 2023', deskripsi: 'Tampilkan karya seni.', terdaftar: false }
     ],
     laporan: [
-      { kegiatan: 'Workshop Musik', peserta: 40, biaya: 'Rp 300.000' },
-      { kegiatan: 'Pameran Seni', peserta: 60, biaya: 'Rp 400.000' }
+      { kegiatan: 'Workshop Musik', peserta: 40, biaya: 'Rp 300.000', terdaftar: false },
+      { kegiatan: 'Pameran Seni', peserta: 60, biaya: 'Rp 400.000', terdaftar: false }
     ]
   },
   {
     id: 3,
     nama: 'UKM Teknologi',
     deskripsi: 'Fokus pada pengembangan skill IT, coding, dan inovasi teknologi.',
+    terdaftar: false,
     gambar: 'https://via.placeholder.com/300x200?text=UKM+Teknologi',
     anggota: [
       { nama: 'Frank Miller', jabatan: 'Ketua' },
@@ -48,8 +51,8 @@ export const ukmData = [
       { nama: 'Henry Ford', jabatan: 'Bendahara' }
     ],
     kegiatan: [
-      { nama: 'Hackathon', tanggal: '22 Okt 2023', deskripsi: 'Kompetisi coding.' },
-      { nama: 'Seminar AI', tanggal: '28 Okt 2023', deskripsi: 'Pelajari kecerdasan buatan.' }
+      { nama: 'Hackathon', tanggal: '22 Okt 2023', deskripsi: 'Kompetisi coding.', terdaftar: false },
+      { nama: 'Seminar AI', tanggal: '28 Okt 2023', deskripsi: 'Pelajari kecerdasan buatan.', terdaftar: false }
     ],
     laporan: [
       { kegiatan: 'Hackathon', peserta: 25, biaya: 'Rp 1.000.000' },
@@ -60,14 +63,15 @@ export const ukmData = [
     id: 4,
     nama: 'UKM Sosial',
     deskripsi: 'Mengorganisir kegiatan bakti sosial, donor darah, dan kampanye lingkungan.',
+    terdaftar: false,
     gambar: 'https://via.placeholder.com/300x200?text=UKM+Sosial',
     anggota: [
       { nama: 'Ivy Green', jabatan: 'Ketua' },
       { nama: 'Jack Black', jabatan: 'Anggota' }
     ],
     kegiatan: [
-      { nama: 'Donor Darah', tanggal: '10 Okt 2023', deskripsi: 'Bantu sesama dengan donor.' },
-      { nama: 'Gotong Royong', tanggal: '15 Okt 2023', deskripsi: 'Bersihkan lingkungan.' }
+      { nama: 'Donor Darah', tanggal: '10 Okt 2023', deskripsi: 'Bantu sesama dengan donor.', terdaftar: false },
+      { nama: 'Gotong Royong', tanggal: '15 Okt 2023', deskripsi: 'Bersihkan lingkungan.', terdaftar: false  }
     ],
     laporan: [
       { kegiatan: 'Donor Darah', peserta: 100, biaya: 'Rp 100.000' },
