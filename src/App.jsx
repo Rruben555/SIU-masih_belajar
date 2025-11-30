@@ -3,16 +3,19 @@ import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from
 
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Footer from './components/Footer';  // Footer sudah diimpor, tapi belum digunakan—saya tambahkan di bawah jika perlu
+import Footer from './components/Footer';
 import Home from "./pages/Home";
 import DetailUKM from './pages/DetailUKM';
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgetPassword"; // Tambahkan import ini
 import Profile from "./pages/Profile";
-import Anggota from "./pages/Anggota";  // Tambahan import
-import Forum from "./pages/Forum";      // Tambahan import
-import Kegiatan from "./pages/Kegiatan"; // Tambahan import
-import Laporan from "./pages/Laporan";   // Tambahan import
+import Anggota from "./pages/Anggota";
+import Forum from "./pages/Forum";
+import Kegiatan from "./pages/Kegiatan";
+import Laporan from "./pages/Laporan";
+import AdminPage from "./pages/AdminPage";
+import AuthGuard from "./components/AuthGuard";
 
 function AppContent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -21,11 +24,11 @@ function AppContent() {
   const [anggotaTerdaftar, setAnggotaTerdaftar] = useState(false);
   const [kegiatanTerdaftar, setKegiatanTerdaftar] = useState(false);
 
-
   const toggleSidebar = () => setIsSidebarOpen((v) => !v);
 
+  // Tambahkan "/forgot-password" ke fullScreen untuk konsistensi dengan login/register
   const fullScreen =
-    location.pathname === "/login" || location.pathname === "/register";
+    location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/forgot-password";
 
   const handleNavigate = (page) => navigate(page);
   const handleLogout = () => navigate("/login");
@@ -37,14 +40,24 @@ function AppContent() {
       <div className={!fullScreen ? "pt-16" : ""}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ukm/:id" element={<DetailUKM />} />  {/* Tambahan route untuk DetailUKM */}
-          <Route path="/anggota" element={<Anggota setAnggotaTerdaftar={setAnggotaTerdaftar}/>} />  {/* Tambahan route */}
-          <Route path="/forum" element={<Forum />} />      {/* Tambahan route */}
-          <Route path="/kegiatan" element={<Kegiatan setKegiatanTerdaftar={setKegiatanTerdaftar} />} /> {/* Tambahan route */}
-          <Route path="/laporan" element={<Laporan />} />   {/* Tambahan route */}
+          <Route path="/ukm/:id" element={<DetailUKM />} />
+          <Route path="/anggota" element={<Anggota setAnggotaTerdaftar={setAnggotaTerdaftar}/>} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/kegiatan" element={<Kegiatan setKegiatanTerdaftar={setKegiatanTerdaftar} />} />
+          <Route path="/laporan" element={<Laporan />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Tambahkan route ini */}
           <Route path="/profile" element={<Profile anggota={anggotaTerdaftar} kegiatan={kegiatanTerdaftar}/>} />
+
+          <Route 
+            path="/admin" 
+            element={
+              <AuthGuard>
+                <AdminPage />
+              </AuthGuard>
+            } 
+          />
         </Routes>
       </div>
 
@@ -62,7 +75,6 @@ function AppContent() {
         />
       )}
 
-      {/* Tambahkan Footer jika diperlukan, tapi hanya untuk halaman non-fullScreen */}
       {!fullScreen && <Footer />}
     </div>
   );
