@@ -15,7 +15,7 @@ export default function Sidebar({ isOpen, onClose, navigate, onLogout }) {
 
   return (
     <div
-      className={`fixed top-0 right-0 h-full w-64 bg-green-900 text-white p-6 shadow-xl z-40
+      className={`fixed top-0 right-0 h-full w-64 bg-emerald-400 text-white p-6 shadow-xl z-40
       transition-transform duration-300 flex flex-col
       ${isOpen ? "translate-x-0" : "translate-x-full"}`}
     >
@@ -30,7 +30,7 @@ export default function Sidebar({ isOpen, onClose, navigate, onLogout }) {
             navigate("/login");
             onClose();
           }}
-          className="w-full p-3 bg-blue-500 my-2 rounded-lg font-bold hover:bg-blue-600 transition"
+          className="w-full p-3 bg-gray-800 my-2 rounded-lg font-bold hover:bg-gray-400 transition text-white"
         >
           Login
         </button>
@@ -40,7 +40,7 @@ export default function Sidebar({ isOpen, onClose, navigate, onLogout }) {
             navigate("/register");
             onClose();
           }}
-          className="w-full p-3 bg-yellow-500 my-2 rounded-lg font-bold hover:bg-yellow-600 transition"
+          className="w-full p-3 bg-gray-800 my-2 rounded-lg font-bold hover:bg-gray-400 transition text-white"
         >
           Register
         </button>
@@ -50,7 +50,7 @@ export default function Sidebar({ isOpen, onClose, navigate, onLogout }) {
             onLogout();
             onClose();
           }}
-          className="w-full p-3 bg-red-500 my-2 rounded-lg font-bold hover:bg-red-600 transition"
+          className="w-full p-3 bg-gray-800 my-2 rounded-lg font-bold hover:bg-gray-400 transition text-white"
         >
           Logout
         </button>
