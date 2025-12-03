@@ -74,6 +74,7 @@ export default function Register() {
       
       <input
         className="w-full p-3 my-2 rounded-lg bg-white"
+      />
       <input className="w-full p-3 my-2 rounded-lg bg-white"
         placeholder="Username"
         value={username}
@@ -90,7 +91,7 @@ export default function Register() {
       
       <input
         className="w-full p-3 my-2 rounded-lg bg-white"
-
+      />
       <input className="w-full p-3 my-2 rounded-lg bg-white"
         placeholder="Email"
         value={email}
@@ -110,6 +111,7 @@ export default function Register() {
         type="password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
+      />
 
       <input className="w-full p-3 my-2 rounded-lg bg-white"
         placeholder="Confirm Password"
@@ -120,9 +122,7 @@ export default function Register() {
 
       <button
         onClick={handleRegister}
-        className="w-full p-3 mt-4 bg-gray-400 text-white rounded-lg hover:bg-gray-500"
-        className="w-full p-3 mt-4 bg-green-800 text-white rounded-lg"
-      >
+        className="w-full p-3 mt-4 bg-gray-400 text-white rounded-lg hover:bg-gray-500"      >
         Register
       </button>
 
@@ -141,4 +141,5 @@ export default function Register() {
       </button>
     </FormContainer>
   );
+}
 }
